@@ -1994,122 +1994,104 @@ div#particles-box {
 /*-----------------------------------------
 * Contact Us
 -----------------------------------------*/
-.form-group {
-    position: relative;
-    width: 100%;
-    margin-bottom: 20px;
-}
-.form-group .form-control {
-    border:none;
-    outline: none;
-    box-shadow: none;
-    height: 40px;
-    padding-left: 0;
-    padding-right: 0;
-    border-bottom: 1px solid #ddd;
-    border-radius: 0;
-    width: 100%;
-    font-size: 14px;
-    color: #000;
-    background: none;
+/* Styling the section */
+.section {
+    padding: 60px 20px;
+    background-color: #f4f4f4;
 }
 
-.form-group textarea.form-control {
-  height: 100px;
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.form-group select {
-    border:none;
-    outline: none;
-    -webkit-box-shadow: none !important;
-            box-shadow: none !important;
-    padding-left: 0;
-    padding-right: 0;
-    border-bottom: 2px solid #a09eb5;
-    border-radius: 0;
-    width: 100%;
+.contact-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-.form-group .input-focus-effect {
-    width: 0 !important;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    -webkit-transition: ease all 0.3s;
-    -o-transition: ease all 0.3s;
-    transition: ease all 0.3s;
-    height: 2px;
-    background: #26a69a;
-}
-
-.form-group textarea:focus:not([readonly]) + span.input-focus-effect,
-.form-group input:focus:not([readonly]) + span.input-focus-effect,
-.form-group select:focus:not([readonly]) + span.input-focus-effect {
-    width: 100% !important;
-}
-
-.contact-form {
-    padding: 25px;
-    border: 1px solid #e7e5f7;
-    background: #fff;
-}
-
-.contact-form h2 {
-    font-size: 18px;
-    color: #292929;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-.contact-info {
-    padding: 25px;
-    margin-right: 25px;
-    border: 1px solid #e7e5f7;
-    height: 100%;
-    background: #fff;
-}
-.ci-row {
-    margin-bottom: 25px;
-    position: relative;
-    padding-left: 40px;
-}
-.ci-row:last-child {
-  margin-bottom: 0;
-}
-.ci-row label {
-    font-size: 14px;
-    color: #666;
-    letter-spacing: 0.5px;
-    width: 100%;
-    display: inline-block;
-    vertical-align: top;
-    margin: 0 0 5px;
-}
-
-.ci-row span {
-    font-size: 15px;
-    color: #292929;
-    font-weight: 600;
-}
-
-.ci-row i {
-    width: 35px;
-    height: 35px;
+.contact-col {
+    flex: 1;
+    max-width: 600px;
     text-align: center;
-    line-height: 35px;
-    border-radius: 50%;
-    left: -10px;
-    top: 0;
-    position: absolute;
-    color: #fff;
 }
 
-@media(max-width: 991px){
-  .contact-info {
-    margin:0 0 40px;
-    height: auto;
-  }
+.contact-title {
+    margin-bottom: 30px;
 }
+
+.contact-title label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.contact-title h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.contact-title p {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* Styling the social links */
+.social-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #007bff;
+    color: white;
+    transform: translateY(-5px);
+}
+
+.social-links a i {
+    margin-right: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .contact-col {
+        max-width: 100%;
+    }
+
+    .contact-title h2 {
+        font-size: 1.6rem;
+    }
+
+    .social-links a {
+        font-size: 1.3rem;
+    }
+}
+
 
 /*-----------------------------------------
 *  Footer
