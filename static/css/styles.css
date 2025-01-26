@@ -1442,87 +1442,96 @@ div#particles-box {
 *  Resume
 -----------------------------------------*/
 .work-experience-area {
-    background: #f9f9f9;
+    background: #f4f7fb; /* Light blue background */
+    padding: 40px 0; /* Added padding for better spacing */
 }
 
 .work-experience-area .section-title h2 {
-   margin-top: 80px; 
-  color: #4169e1;
+    margin-top: 60px;
+    color: #4169e1;
+    font-size: 28px; /* Increased font size for better prominence */
+    text-align: center; /* Centered title */
+    font-weight: 600; /* Slightly bolder font weight */
 }
 
 .single-experience {
     background: #fff;
-    padding: 20px;
-    margin-bottom: 20px;
+    border-radius: 8px; /* Added rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    padding: 30px; /* Increased padding for more space */
+    margin-bottom: 30px; /* Increased space between sections */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.single-experience:hover {
+    transform: translateY(-10px); /* Slight lift on hover */
 }
 
 .single-experience h2 {
-    font-size: 12px;
+    font-size: 14px; /* Increased font size */
     text-transform: uppercase;
-    margin: 20px 0px;
+    margin: 15px 0; /* Adjusted margins */
     color: #232323;
-    font-weight: 400;
-    letter-spacing: 2px;
+    font-weight: 500;
+    letter-spacing: 1.5px; /* Reduced letter spacing for readability */
 }
 
 .single-experience h3 {
-    font-size: 12px;
-    margin: 20px 0px;
+    font-size: 16px; /* Slightly larger for better readability */
+    margin: 15px 0;
     font-family: 'Poppins', sans-serif;
+    color: #555; /* Lighter text color for contrast */
 }
 
 .single-experience p {
-    margin-bottom: 0;
+    margin-bottom: 15px;
+    font-size: 16px; /* Increased text size for better readability */
+    line-height: 1.6; /* Improved line height for easier reading */
+    color: #666; /* Lighter text color */
 }
 
-/* #experience .single-experience span{
+.single-experience img {
     float: right;
-    margin-top: -30px;
-    font-size: 12px;
-    font-weight: 300;
-    border-bottom: 1px solid #000;
-} */
-
-.single-experience img{
-    float: right;
-    margin-top: -43px;
-    font-size: 12px;
-    font-weight: 300;
-    width: auto;
-    height: 35px;
-    text-align: center;
+    margin-top: -35px; /* Adjusted margin to look better */
+    width: 50px; /* Set a more consistent image width */
+    height: auto;
+    max-height: 50px; /* Max height to prevent distortion */
 }
 
-.involvement-experience-link{    
+.involvement-experience-link {
     font-weight: 500;
     cursor: pointer;
-    color: var(--accent-color)
+    color: #4169e1; /* Accent color for links */
+    transition: color 0.3s ease;
 }
 
-#wod-involvement-link:hover{
-    color: #1494a3;
+.involvement-experience-link:hover {
+    color: #1494a3; /* Subtle color change on hover */
 }
 
-#fbla-involvement-link:hover{
+#fbla-involvement-link:hover {
     color: #bc2c34;
 }
 
-#hack-club-involvement-link:hover{
+#hack-club-involvement-link:hover {
     color: #eb3e4a;
 }
 
-#educationist-involvement-link:hover{
+#educationist-involvement-link:hover {
     color: #0ff6bc;
 }
 
-#footer-link{
+#footer-link {
     font-weight: 500;
     cursor: pointer;
     color: #fff;
+    transition: color 0.3s ease;
 }
-#footer-link:hover{
+
+#footer-link:hover {
     color: #a3cbf3;
 }
+
 
 /*-----------------------------------------
 *  Skill Left
