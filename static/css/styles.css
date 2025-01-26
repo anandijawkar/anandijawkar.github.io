@@ -22,65 +22,66 @@ Table of contents
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 
  body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-        }
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
 
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+.achievements-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .box {
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+.achievements-box {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
-        .box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
+.achievements-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
 
-        .icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
+.icon {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
 
-        .title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #333333;
-        }
+.title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333333;
+}
 
-        .description {
-            font-size: 0.9rem;
-            color: #666666;
-        }
+.description {
+    font-size: 0.9rem;
+    color: #666666;
+}
 
-        @media (max-width: 600px) {
-            .box {
-                padding: 15px;
-            }
+@media (max-width: 600px) {
+    .achievements-box {
+        padding: 15px;
+    }
 
-            .title {
-                font-size: 1rem;
-            }
+    .title {
+        font-size: 1rem;
+    }
 
-            .description {
-                font-size: 0.8rem;
-            }
-        } 
+    .description {
+        font-size: 0.8rem;
+    }
+}
+
 /*---------------------------------
 * 01. Loading
 -----------------------------------*/
