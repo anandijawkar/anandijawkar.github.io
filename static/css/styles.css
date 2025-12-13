@@ -1462,6 +1462,9 @@ div#particles-box {
     padding: 30px; /* Increased padding for more space */
     margin-bottom: 30px; /* Space between cards in same column */
     transition: transform 0.3s ease; /* Smooth hover effect */
+    height: 280px; /* Fixed height for all cards */
+    display: flex;
+    flex-direction: column;
 }
 
 .single-experience:hover {
@@ -2192,5 +2195,6 @@ div#particles-box {
 .bg-center-right { background-position: center right; }
 .bg-center-left { background-position: center left; }
 .bg-fixed { background-attachment: fixed;  }
+
 
 
