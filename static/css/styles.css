@@ -1462,9 +1462,10 @@ div#particles-box {
     padding: 30px; /* Increased padding for more space */
     margin-bottom: 30px; /* Space between cards in same column */
     transition: transform 0.3s ease; /* Smooth hover effect */
-    min-height: 320px; /* Minimum height for all cards */
+    height: 340px; /* Fixed height for all cards */
     display: flex;
     flex-direction: column;
+    position: relative; /* For absolute positioning of logo */
 }
 
 .single-experience:hover {
@@ -1474,17 +1475,19 @@ div#particles-box {
 .single-experience h2 {
     font-size: 14px; /* Increased font size */
     text-transform: uppercase;
-    margin: 15px 0; /* Adjusted margins */
+    margin: 0 0 10px 0; /* Adjusted margins */
     color: #232323;
     font-weight: 500;
     letter-spacing: 1.5px; /* Reduced letter spacing for readability */
+    padding-right: 60px; /* Space for the logo */
 }
 
 .single-experience span {
     font-size: 13px;
     color: #888;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    padding-right: 60px; /* Space for the logo */
 }
 
 .single-experience h3 {
@@ -1502,8 +1505,9 @@ div#particles-box {
 }
 
 .single-experience img {
-    float: right;
-    margin-top: -35px; /* Adjusted margin to look better */
+    position: absolute;
+    top: 30px;
+    right: 30px;
     width: 50px; /* Set a more consistent image width */
     height: auto;
     max-height: 50px; /* Max height to prevent distortion */
@@ -2195,6 +2199,7 @@ div#particles-box {
 .bg-center-right { background-position: center right; }
 .bg-center-left { background-position: center left; }
 .bg-fixed { background-attachment: fixed;  }
+
 
 
 
