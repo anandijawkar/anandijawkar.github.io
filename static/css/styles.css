@@ -1454,13 +1454,23 @@ div#particles-box {
     font-weight: 600; /* Slightly bolder font weight */
 }
 
+/* Grid container for 3-column layout */
+.work-experience-area .experience-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 30px; /* Space between cards */
+    max-width: 1200px; /* Optional: limit max width */
+    margin: 0 auto; /* Center the grid */
+    padding: 0 20px; /* Side padding */
+}
+
 .single-experience {
     background: #fff;
     border-radius: 8px; /* Added rounded corners */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
     padding: 30px; /* Increased padding for more space */
-    margin-bottom: 30px; /* Increased space between sections */
     transition: transform 0.3s ease; /* Smooth hover effect */
+    height: 100%; /* Ensures equal height cards */
 }
 
 .single-experience:hover {
@@ -1507,6 +1517,24 @@ div#particles-box {
 
 .involvement-experience-link:hover {
     color: #1494a3; /* Subtle color change on hover */
+}
+
+/* Responsive design */
+@media (max-width: 992px) {
+    .work-experience-area .experience-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    }
+}
+
+@media (max-width: 576px) {
+    .work-experience-area .experience-container {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+    
+    .work-experience-area .section-title h2 {
+        font-size: 28px; /* Smaller title on mobile */
+        margin-top: 30px;
+    }
 }
 
 #fbla-involvement-link:hover {
@@ -2176,3 +2204,4 @@ div#particles-box {
 .bg-center-right { background-position: center right; }
 .bg-center-left { background-position: center left; }
 .bg-fixed { background-attachment: fixed;  }
+
