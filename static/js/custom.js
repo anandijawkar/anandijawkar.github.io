@@ -85,7 +85,9 @@
     ----------------------*/
     var a = 0;
     KEIRA.Counter = function(){
-      var oTop = $('.counter-box').offset().top - window.innerHeight;
+      var $counter = $('.counter-section, .counter-box').first();
+      if (!$counter.length) { return; }
+      var oTop = $counter.offset().top - window.innerHeight;
         if (a == 0 && $(window).scrollTop() > oTop) {
           $('.count').each(function () {
                 $(this).prop('Counter',0).animate({
@@ -218,10 +220,40 @@
         }); 
     }
 
+    /*--------------------
+    * Scroll Reveal
+    ----------------------*/
+    KEIRA.Reveal = function(){
+      var nodes = document.querySelectorAll('.reveal, .experience-grid, .section-title, .achievements-container, .portfolio-content, .blog-item');
+      if (!nodes.length) { return; }
+
+      if (!('IntersectionObserver' in window)) {
+        nodes.forEach(function(el){ el.classList.add('is-visible'); });
+        return;
+      }
+
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+      nodes.forEach(function(el){
+        if (!el.classList.contains('reveal') && !el.classList.contains('experience-grid')) {
+          el.classList.add('reveal');
+        }
+        observer.observe(el);
+      });
+    }
+
     
     // Window on Load
     $(window).on("load", function(){
       KEIRA.WebLoad();
+      KEIRA.Reveal();
     });
 
     $(document).on("ready", function(){
@@ -235,7 +267,8 @@
         KEIRA.HeaderScroll(),
         KEIRA.PopupVideo(),
         KEIRA.LightboxGallery(),
-        KEIRA.mTypeIt();
+        KEIRA.mTypeIt(),
+        KEIRA.Reveal();
     });
 
     $(window).on("scroll", function(){
