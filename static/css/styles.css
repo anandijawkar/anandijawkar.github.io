@@ -2429,7 +2429,7 @@ section.section,
   position: absolute;
   top: 0;
   right: 0;
-  width: min(48vw, 640px);
+  width: min(36vw, 480px);
   height: 100%;
   z-index: 1;
   pointer-events: none;
@@ -2439,7 +2439,7 @@ section.section,
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 18%;
   display: block;
   filter: saturate(0.92) contrast(1.02);
 }
@@ -2452,9 +2452,9 @@ section.section,
   background: linear-gradient(
     90deg,
     var(--mist) 0%,
-    rgba(238, 243, 246, 0.82) 18%,
-    rgba(238, 243, 246, 0.2) 48%,
-    transparent 72%
+    rgba(238, 243, 246, 0.7) 12%,
+    rgba(238, 243, 246, 0.15) 40%,
+    transparent 65%
   );
 }
 
