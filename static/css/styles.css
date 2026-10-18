@@ -2407,9 +2407,9 @@ section.section,
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 55% 70% at 75% 40%, rgba(26, 122, 109, 0.18), transparent 60%),
-    radial-gradient(ellipse 40% 50% at 15% 80%, rgba(20, 33, 61, 0.08), transparent 55%),
-    linear-gradient(135deg, #e8f0f3 0%, #f4f7f8 42%, #dce8e6 100%);
+    radial-gradient(ellipse 50% 65% at 82% 42%, rgba(26, 122, 109, 0.16), transparent 58%),
+    radial-gradient(ellipse 42% 48% at 18% 78%, rgba(20, 33, 61, 0.07), transparent 55%),
+    linear-gradient(135deg, #e8f0f3 0%, #f4f7f8 45%, #dce8e6 100%);
   z-index: 0;
 }
 
@@ -2417,59 +2417,64 @@ section.section,
   content: "";
   position: absolute;
   inset: 0;
-  opacity: 0.35;
+  opacity: 0.32;
   background-image:
     linear-gradient(rgba(20, 33, 61, 0.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(20, 33, 61, 0.035) 1px, transparent 1px);
   background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 70% 70% at 30% 50%, #000 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 65% 70% at 28% 48%, #000 18%, transparent 72%);
 }
 
+/* Right-edge portrait panel — clean seam, no fog over type */
 .home-banner-photo {
   position: absolute;
   top: 0;
   right: 0;
-  width: min(36vw, 480px);
-  height: 100%;
+  bottom: 0;
+  width: min(28vw, 380px);
   z-index: 1;
   pointer-events: none;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 7%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 7%,
+    #000 100%
+  );
 }
 
 .home-banner-photo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: 62% 10%;
   display: block;
-  filter: saturate(0.92) contrast(1.02);
+  filter: saturate(0.94) contrast(1.03);
 }
 
+/* Hairline mist blend at the seam only */
 .home-banner-photo::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 0 auto 0 0;
+  width: 18%;
   z-index: 1;
   background: linear-gradient(
     90deg,
     var(--mist) 0%,
-    rgba(238, 243, 246, 0.7) 12%,
-    rgba(238, 243, 246, 0.15) 40%,
-    transparent 65%
+    rgba(238, 243, 246, 0.25) 40%,
+    transparent 100%
   );
 }
 
+/* Drop the dissolving top/bottom fog */
 .home-banner-photo::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(
-    180deg,
-    rgba(238, 243, 246, 0.35) 0%,
-    transparent 28%,
-    transparent 70%,
-    rgba(238, 243, 246, 0.55) 100%
-  );
+  content: none;
 }
 
 .home-banner-inner {
@@ -2478,8 +2483,8 @@ section.section,
 }
 
 .home-banner .home-text {
-  max-width: 34rem;
-  padding: 120px 0 80px;
+  max-width: min(34rem, calc(100vw - min(28vw, 380px) - 7rem));
+  padding: 120px 1.5rem 80px 0;
 }
 
 .home-kicker {
@@ -2496,9 +2501,9 @@ section.section,
 
 .home-name {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 8vw, 5.75rem);
+  font-size: clamp(2.75rem, 6.2vw, 4.75rem);
   font-weight: 800;
-  line-height: 0.95;
+  line-height: 1.02;
   letter-spacing: -0.04em;
   color: var(--ink);
   margin: 0 0 22px;
@@ -2554,19 +2559,44 @@ section.section,
   }
 }
 
+@media (min-width: 992px) {
+  .home-banner-inner.container {
+    /* Keep copy clear of the portrait strip */
+    padding-right: calc(min(28vw, 380px) * 0.75 + 2rem);
+  }
+}
+
 @media (max-width: 991px) {
   .home-banner-photo {
-    width: 100%;
-    opacity: 0.28;
+    width: 78%;
+    max-width: none;
+    opacity: 1;
+    -webkit-mask-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.35) 22%,
+      rgba(0, 0, 0, 0.45) 48%,
+      transparent 78%
+    );
+    mask-image: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(0, 0, 0, 0.35) 22%,
+      rgba(0, 0, 0, 0.45) 48%,
+      transparent 78%
+    );
   }
+
   .home-banner-photo::before {
     background: linear-gradient(
       180deg,
-      rgba(238, 243, 246, 0.92) 0%,
-      rgba(238, 243, 246, 0.75) 45%,
-      rgba(238, 243, 246, 0.9) 100%
+      var(--mist) 0%,
+      rgba(238, 243, 246, 0.72) 28%,
+      rgba(238, 243, 246, 0.55) 55%,
+      var(--mist) 100%
     );
   }
+
   .home-banner .home-text {
     padding: 130px 0 70px;
     max-width: 100%;
@@ -2577,6 +2607,11 @@ section.section,
   .home-name {
     font-size: clamp(2.6rem, 12vw, 3.4rem);
   }
+
+  .home-banner-photo {
+    width: 100%;
+  }
+
   .home-banner .home-text {
     margin: 0;
     padding: 120px 0 60px;
