@@ -977,11 +977,11 @@ img {
 }
 
 .home-banner {
-  background: var(--mist, #eef3f6);
+  background: #c8ced7;
 }
 
 .home-banner h4{
-  color: var(--ink, #14213d);
+  color: #292929;
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 20px;
@@ -990,7 +990,7 @@ img {
 }
 
 .home-banner h5 {
-  color: var(--ink, #14213d);
+  color: #292929;
   font-size: 80px;
   font-weight: 600;
   margin: 0 0 25px -6px;
@@ -999,10 +999,22 @@ img {
   letter-spacing: 4px;
 }
 .home-banner p {
-  color: var(--ink, #14213d);
+  color: #292929;
   font-size: 18px;
   font-weight: 400;
   margin: 0 0 45px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.home-banner p span {
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0 5px;
+}
+.home-banner img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 @media(max-width: 1100px){
@@ -2225,9 +2237,15 @@ h1, h2, h3, h4, h5, h6,
 .font-alt,
 .section-title h2,
 .section-title-01 h3,
-.home-name,
 .navbar-brand {
   font-family: var(--font-display);
+}
+
+/* Keep classic hero type from Jan layout (not display face) */
+.home-banner h4,
+.home-banner h5,
+.home-banner p {
+  font-family: var(--font-body);
 }
 
 /* Undo flat global section override later in file */
@@ -2395,227 +2413,9 @@ section.section,
   background: var(--ink);
 }
 
-/*-------- Hero: full-bleed composition --------*/
-.home-banner {
-  position: relative;
-  overflow: hidden;
-  background: var(--mist);
-  min-height: 100vh;
-}
-
-.home-banner-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 50% 65% at 82% 42%, rgba(26, 122, 109, 0.16), transparent 58%),
-    radial-gradient(ellipse 42% 48% at 18% 78%, rgba(20, 33, 61, 0.07), transparent 55%),
-    linear-gradient(135deg, #e8f0f3 0%, #f4f7f8 45%, #dce8e6 100%);
-  z-index: 0;
-}
-
-.home-banner-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.32;
-  background-image:
-    linear-gradient(rgba(20, 33, 61, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(20, 33, 61, 0.035) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 65% 70% at 28% 48%, #000 18%, transparent 72%);
-}
-
-/* Right-edge portrait panel — clean seam, no fog over type */
-.home-banner-photo {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: min(28vw, 380px);
-  z-index: 1;
-  pointer-events: none;
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    #000 7%,
-    #000 100%
-  );
-  mask-image: linear-gradient(
-    90deg,
-    transparent 0%,
-    #000 7%,
-    #000 100%
-  );
-}
-
-.home-banner-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 62% 10%;
-  display: block;
-  filter: saturate(0.94) contrast(1.03);
-}
-
-/* Hairline mist blend at the seam only */
-.home-banner-photo::before {
-  content: "";
-  position: absolute;
-  inset: 0 auto 0 0;
-  width: 18%;
-  z-index: 1;
-  background: linear-gradient(
-    90deg,
-    var(--mist) 0%,
-    rgba(238, 243, 246, 0.25) 40%,
-    transparent 100%
-  );
-}
-
-/* Drop the dissolving top/bottom fog */
-.home-banner-photo::after {
-  content: none;
-}
-
-.home-banner-inner {
-  position: relative;
-  z-index: 2;
-}
-
-.home-banner .home-text {
-  max-width: min(34rem, calc(100vw - min(28vw, 380px) - 7rem));
-  padding: 120px 1.5rem 80px 0;
-}
-
-.home-kicker {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--accent-deep);
-  margin: 0 0 18px;
-  opacity: 0;
-  animation: riseIn 0.9s var(--ease-out) 0.15s forwards;
-}
-
-.home-name {
-  font-family: var(--font-display);
-  font-size: clamp(2.75rem, 6.2vw, 4.75rem);
-  font-weight: 800;
-  line-height: 1.02;
-  letter-spacing: -0.04em;
-  color: var(--ink);
-  margin: 0 0 22px;
-  text-transform: none;
-  opacity: 0;
-  animation: riseIn 1s var(--ease-out) 0.32s forwards;
-}
-
-.home-lead {
-  font-family: var(--font-body);
-  font-size: clamp(1.05rem, 2vw, 1.25rem);
-  font-weight: 500;
-  letter-spacing: 0;
-  text-transform: none;
-  color: var(--ink-soft);
-  margin: 0 0 36px;
-  line-height: 1.55;
-  max-width: 28rem;
-  opacity: 0;
-  animation: riseIn 1s var(--ease-out) 0.48s forwards;
-}
-
-.home-lead span,
-.home-banner p span.theme-bg {
-  text-transform: none;
-  color: #fff;
-  padding: 2px 8px;
-  border-radius: 2px;
-  display: inline-block;
-  background: var(--accent);
-}
-
-.home-banner .btn-bar {
-  opacity: 0;
-  animation: riseIn 1s var(--ease-out) 0.62s forwards;
-}
-
-/* Legacy selectors still used by theme */
-.home-banner h4,
-.home-banner h5,
-.home-banner p {
-  color: var(--ink);
-}
-
-@keyframes riseIn {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (min-width: 992px) {
-  .home-banner-inner.container {
-    /* Keep copy clear of the portrait strip */
-    padding-right: calc(min(28vw, 380px) * 0.75 + 2rem);
-  }
-}
-
-@media (max-width: 991px) {
-  .home-banner-photo {
-    width: 78%;
-    max-width: none;
-    opacity: 1;
-    -webkit-mask-image: linear-gradient(
-      180deg,
-      transparent 0%,
-      rgba(0, 0, 0, 0.35) 22%,
-      rgba(0, 0, 0, 0.45) 48%,
-      transparent 78%
-    );
-    mask-image: linear-gradient(
-      180deg,
-      transparent 0%,
-      rgba(0, 0, 0, 0.35) 22%,
-      rgba(0, 0, 0, 0.45) 48%,
-      transparent 78%
-    );
-  }
-
-  .home-banner-photo::before {
-    background: linear-gradient(
-      180deg,
-      var(--mist) 0%,
-      rgba(238, 243, 246, 0.72) 28%,
-      rgba(238, 243, 246, 0.55) 55%,
-      var(--mist) 100%
-    );
-  }
-
-  .home-banner .home-text {
-    padding: 130px 0 70px;
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 767px) {
-  .home-name {
-    font-size: clamp(2.6rem, 12vw, 3.4rem);
-  }
-
-  .home-banner-photo {
-    width: 100%;
-  }
-
-  .home-banner .home-text {
-    margin: 0;
-    padding: 120px 0 60px;
-  }
+/*-------- Hero: classic Jan face layout (no full-bleed strip) --------*/
+.home-banner .btn-bar .m-btn-ghost {
+  margin-left: 12px;
 }
 
 /* About */
@@ -3055,10 +2855,6 @@ section.section,
 .experience-grid.is-visible .col-lg-4:nth-child(3) .single-experience:nth-child(2) { transition-delay: 0.22s; }
 
 @media (prefers-reduced-motion: reduce) {
-  .home-kicker,
-  .home-name,
-  .home-lead,
-  .home-banner .btn-bar,
   .reveal,
   .experience-grid .single-experience {
     animation: none !important;
